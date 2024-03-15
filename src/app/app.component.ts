@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FreeapiService } from './services/freeapi.service';
 import {Comments} from './classes/comments';
 import { Posts } from './classes/posts';
-
+import { InputService } from './services/input.service';
+import { Albums } from './classes/albums';
+import { Photos } from './classes/photos';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +19,30 @@ export class AppComponent implements OnInit {
   objPuts :Posts;
   objPatchs :Posts;
   message: String;
+  lstAlbums : Albums[];
+  AlbumSelected : number;
+  lstPhotos : Photos[];
 
 
-  constructor(private freeapiservice:FreeapiService){
+  lstStaticData :Photos[] = [
+    {albumId: 1,id: 1,title:"Test Data Record1",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+    {albumId: 1,id: 2,title:"Test Data Record2",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+    {albumId: 1,id: 3,title:"Test Data Record3",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+    {albumId: 1,id: 4,title:"Test Data Record4",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+
+
+    {albumId: 2,id: 1,title:"Test Album Record1",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+    {albumId: 2,id: 2,title:"Test Album Record2",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+    {albumId: 2,id: 3,title:"Test Album Record3",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+    {albumId: 2,id: 4,title:"Test Album Record4",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+
+    {albumId: 3,id: 1,title:"Test New Album Record1",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
+
+
+  ];
+
+
+  constructor(private freeapiservice:FreeapiService,private inputService : InputService){
 
   }
 
@@ -84,6 +107,29 @@ export class AppComponent implements OnInit {
       this.message = "Resource Delete Successfully";
     }
     )
+
+    this.inputService.getAlbums().
+    subscribe(
+      data =>
+      {
+          this.lstAlbums = data;
+      }
+    
+    )
+}
+
+OnAlbumSelected(selectedAlbumId:any):void{
+  /*this.inputService.getPhotosByAlbumId(selectedAlbumId).
+  subscribe(
+    data =>
+    {
+        
+      this.lstPhotos = data;
+    }
+  
+  )*/
+
+  this.lstPhotos = this.lstStaticData.filter(m=>m.albumId == selectedAlbumId);
 }
 
 }

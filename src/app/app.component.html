@@ -74,3 +74,34 @@
 
   <h1>Patch Response</h1>
   <div>Message : {{message}} </div>
+
+
+
+  <h1>Albums API</h1>
+  <div style="background-color: burlywood;width:50%;margin:auto;padding:10px;">
+  <select [(ngModel)]="AlbumSelected" (ngModelChange)="OnAlbumSelected($event)">
+    <option *ngFor="let album of lstAlbums" [value]="album.id">
+      {{album.title}}
+    </option>
+  </select>
+
+  The Selected Album Id is : {{AlbumSelected}}
+
+
+  <h1>Get Photos Using Album Id API</h1>
+
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Album Id</th>
+      <th>Title</th>
+      <th>Thumbnail</th>
+    </tr>
+    <tr *ngFor="let photo of lstPhotos">
+      <td>{{photo.id}}</td>
+      <td>{{photo.albumId}}</td>
+      <td>{{photo.title}}</td>
+      <td><img src="{{photo.thumbnailUrl}}"/></td>
+    </tr>
+  </table>
+</div>
