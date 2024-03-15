@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   lstPhotos : Photos[];
 
 
-  lstStaticData :Photos[] = [
+  /*lstStaticData :Photos[] = [
     {albumId: 1,id: 1,title:"Test Data Record1",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
     {albumId: 1,id: 2,title:"Test Data Record2",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
     {albumId: 1,id: 3,title:"Test Data Record3",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     {albumId: 3,id: 1,title:"Test New Album Record1",url:"",thumbnailUrl:"https://via.placeholder.com/150/92c952"},
 
 
-  ];
+  ];*/
 
 
   constructor(private freeapiservice:FreeapiService,private inputService : InputService){
@@ -119,7 +119,7 @@ export class AppComponent implements OnInit {
 }
 
 OnAlbumSelected(selectedAlbumId:any):void{
-  /*this.inputService.getPhotosByAlbumId(selectedAlbumId).
+  this.inputService.getPhotosByAlbumId(selectedAlbumId).
   subscribe(
     data =>
     {
@@ -127,9 +127,9 @@ OnAlbumSelected(selectedAlbumId:any):void{
       this.lstPhotos = data;
     }
   
-  )*/
+  )
 
-  this.lstPhotos = this.lstStaticData.filter(m=>m.albumId == selectedAlbumId);
+ // this.lstPhotos = this.lstStaticData.filter(m=>m.albumId == selectedAlbumId);
 }
 
 }
