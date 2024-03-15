@@ -31,6 +31,10 @@ export class FreeapiService {
   }
 
   patch(opost:Posts):Observable<any>{
-    return this.httpclient.put("https://jsonplaceholder.typicode.com/posts/1",opost);
+    return this.httpclient.patch("https://jsonplaceholder.typicode.com/posts/1",opost);
+  }
+
+  delete():Observable<any>{
+    return this.httpclient.delete("https://jsonplaceholder.typicode.com/posts/1");
   }
 }

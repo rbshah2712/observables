@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   objPosts :Posts;
   objPuts :Posts;
   objPatchs :Posts;
+  message: String;
 
 
   constructor(private freeapiservice:FreeapiService){
@@ -67,7 +68,7 @@ export class AppComponent implements OnInit {
 
     
     var opost = new Posts();
-    opost.body = 'patched testbody';
+   
     opost.title = 'patched testtitle';
 
     this.freeapiservice.patch(opost).subscribe(
@@ -77,9 +78,12 @@ export class AppComponent implements OnInit {
     }
     )
 
-
+    this.freeapiservice.delete().subscribe(
+      data => 
+    {
+      this.message = "Resource Delete Successfully";
+    }
+    )
 }
-
-
 
 }
