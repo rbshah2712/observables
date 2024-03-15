@@ -13,7 +13,7 @@
   }
 </style>
 
-<h1>Get Request (https://jsonplaceholder.typicode.com/posts/1/comments)</h1>
+<h1>Get Response (https://jsonplaceholder.typicode.com/posts/1/comments)</h1>
 <table>
 <tr>
   <th>Id</th>
@@ -32,7 +32,7 @@
 </table>
 
 
-<h1>Get Request Using Params (https://jsonplaceholder.typicode.com/posts?userId=1)</h1>
+<h1>Get Response Using Params (https://jsonplaceholder.typicode.com/posts?userId=1)</h1>
 
 <table>
   <tr>
@@ -49,7 +49,7 @@
   </tr>
   </table>
 
-  <h1>Post Request</h1>
+  <h1>Post Response</h1>
   <div *ngIf=objPosts>
   <p>id : {{objPosts?.id}}</p>
   <p>UserId : {{objPosts?.userId}}</p>
@@ -57,7 +57,7 @@
   <p>Body : {{objPosts?.body}}</p>
 
 
-  <h1>Put Request</h1>
+  <h1>Put Response</h1>
   <div *ngIf=objPuts>
   <p>id : {{objPuts?.id}}</p>
   <p>UserId : {{objPuts?.userId}}</p>
@@ -65,7 +65,7 @@
   <p>Body : {{objPuts?.body}}</p>
 
 
-  <h1>Patch Request</h1>
+  <h1>Patch Response</h1>
   <div *ngIf=objPatchs>
   <p>id : {{objPatchs?.id}}</p>
   <p>UserId : {{objPatchs?.userId}}</p>
